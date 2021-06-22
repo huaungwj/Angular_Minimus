@@ -1,0 +1,402 @@
+@media screen and (max-width: 959px) {
+  .details-page__wrapper{
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    flex-flow: column !important;
+
+    .back__button{
+      position: static !important;
+      margin-bottom: 1rem;
+      top: 1rem !important;
+    }
+
+    .main-weather__card{
+      width: 90% !important;
+      height: 80%;
+
+      .card-header__container-dark{
+
+        .header-content__wrapper{
+          grid-template-columns: 1fr !important;
+          grid-template-rows: 1fr 1fr !important;
+
+          .today-weather__container{
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 1fr !important;
+          }
+        }
+      }
+
+      .body-content__wrapper{
+        grid-template-columns: 1fr !important;
+        grid-template-rows: .5fr 1.5fr !important;
+        padding: 0 !important;
+        .twitter-feed__container{
+
+          .twitter-feed__header{
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 1fr 1fr  1fr !important;
+            grid-row-gap: 1rem;
+          }
+        }
+      }
+
+      .forecast__container{
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+        overflow-y: auto !important;
+        justify-content: normal !important;
+        .day-weather__container{
+          flex: none !important;
+        }
+      }
+
+
+    }
+  }
+}
+
+// 最外层details-page__wrapper盒子
+.details-page__wrapper{
+  background:-webkit-gradient(linear,left bottom,left top,from(#86dbff),to(#e0c3fc));
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-pack: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 0;
+  //   背景圈圈
+  .background-gradient__circle{
+    background: linear-gradient(-225deg,#fff 0,#ffe29f 10%,#ffa99f 48%,#ffd1ff 100%);
+    width: 100rem;
+    height: 100rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    border-radius: 50%;
+    animation: .9s ease-in-out forwards scaleup-circle;
+    transition: background 1s ease-in-out;
+  }
+  // 返回按钮
+  .back__button{
+    outline: none;
+    position: absolute;
+    top: 3rem;
+    left: 3.25rem;
+    width: 80 / 16rem;
+    cursor: pointer;
+    z-index: 6;
+    margin-top: 32/ 16rem;
+
+  }
+
+
+  // 内容
+  .main-weather__card{
+    z-inde: 10;
+    width: 75%;
+    height: 80%;
+    position: relative;
+    justify-content: center;
+    border-radius: 16 / 16rem;
+    background-color: #fff;
+    opacity: 0;
+    animation: 1s ease-out .3s scaleup,1.25s ease-out .3s forwards fadein;
+
+    // 头部
+    .card-header__container-dark{
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      height: 390px;
+      //图片
+      .city__illustration{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        //填充整个大小
+        object-fit: cover;
+        border-radius: 1rem 1rem 0 0;
+      }
+
+    //  天气内容
+      .header-content__wrapper{
+        width: 100%;
+        z-index: 3;
+        margin-top: 3rem;
+        position: absolute;
+        top: 3rem;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        justify-items: center;
+        //第一个盒子
+        .today-weather__container{
+          display: grid;
+          grid-template-rows: 2fr 1fr 1fr;
+          grid-template-columns: 1fr;
+          width: 100%;
+          align-self: center;
+          justify-self: center;
+          justify-items: center;
+          grid-gap: 2rem;
+
+          // 温度
+          .temp-state__container{
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-box-pack:center;
+
+
+            .temperature__text{
+              text-align: center;
+
+              font-size: 6rem;
+              letter-spacing: .75rem;
+            }
+
+            .weather-state__text{
+              font-size: 1.15rem;
+              letter-spacing: .5rem;
+              text-transform: uppercase;
+              margin-top: 1rem;
+              text-align: center;
+            }
+
+          }
+
+        //  风速
+          .hum-wind__container{
+            color: #fff;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+
+            .hum__container{
+              display: flex;
+              flex-direction: column;
+
+              .hum__text{
+                display: block;
+                margin-bottom: 16 / 16rem;
+                letter-spacing: .25rem;
+              }
+            }
+
+            .hum-wind__separator{
+              width: 2 / 16rem;
+              height: 2.5rem;
+              margin: 0 2rem;
+              background-color: white;
+
+
+            }
+
+            .wind__container{
+              display: flex;
+              flex-direction: column;
+
+              .wind__text{
+                margin-bottom: 16 / 16rem;
+              }
+            }
+
+          }
+
+
+
+
+        }
+
+        .city-name__container{
+
+        }
+
+      }
+
+      //天气城市
+      .city-name__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 25%;
+        color: #fff;
+        .city-name__underline{
+
+          box-shadow: 0 3rem 0 0 #fff;
+          height: 5px;
+          border-radius: 5px;
+          background: 0 0;
+          .city-name__text{
+            text-transform: uppercase;
+            letter-spacing: .3rem;
+            font-size: 1.75rem;
+            padding-bottom: 2rem;
+          }
+        }
+      }
+
+
+    }
+
+    .body-content__wrapper{
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1.5fr;
+      width: 100%;
+      grid-column-gap: 1rem;
+      padding: 2rem;
+      justify-items: center;
+      justify-content: center;
+      align-content: start;
+
+
+      //推特api
+      .twitter-feed__container{
+        margin-top: 1rem;
+        width: 100%;
+        .twitter-feed__header{
+          display: grid;
+          grid-template-rows: 1fr;
+          grid-template-columns: .5fr 1.5fr 1fr;
+          justify-items: center;
+          text-align: center;
+          .twitter__icon{
+            width: 24/ 16rem;
+
+          }
+
+          .twitter-feed__text{
+            color: #0c1066;
+            font-size: 1.25rem;
+          }
+          .twitter-feed-tag__text{
+            font-size: 13.6 / 16rem;
+            color: #5f84fb;
+            letter-spacing: .1rem;
+            text-transform: uppercase;
+          }
+
+
+        }
+
+      //  新闻内容
+        .twitter-feed__body{
+          display: flex;
+          width: 100%;
+          flex-flow: column;
+          height: 100%;
+          -webkit-box-direction: normal;
+          -webkit-box-orient: vertical;
+          justify-items: center;
+
+          .twitter-no-tweets__text{
+            margin-top: 3rem;
+            text-align: center;
+          }
+        }
+
+      }
+
+    //  未来7天天气
+      .forecast__container {
+        display: flex;
+        flex-flow: row;
+        margin-left: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        .day-weather__container{
+          display: flex;
+          flex-flow: column;
+          margin: 2rem 1.5rem;
+          justify-content: center;
+          align-items: center;
+          //日期
+          .day-name__text{
+            font-size: 24 / 16rem;
+            color: #39437A;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8 / 16rem;
+          }
+
+          //图标
+          .forecast-condition__icon{
+            width: 64 /16rem;
+            height: 64 / 16rem;
+            display: inline-block;
+          }
+          .day-temp__text{
+            color: #0c1066;
+            font-size: 29.6 /16rem;
+            margin: 12 / 16rem 0;
+            padding-left: 5.6 / 16rem;
+          }
+          .day-state__text{
+            color: #2B244D;
+            font-size: 12 /16rem;
+            letter-spacing: .2rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+
+
+  }
+
+
+
+}
+
+
+
+
+//定义animation动画
+
+@keyframes scaleup-circle {
+  0% {
+    transform: scale(0) translateY(-50%) rotate(0);
+  }
+  100% {
+    transform: scale(1) translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes scaleup{
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+
+  }
+}
+
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+//黑暗模式
+.background-gradient__circle-dark{
+  background: linear-gradient(to bottom,#ff8b8b,#6676ff) !important;
+}

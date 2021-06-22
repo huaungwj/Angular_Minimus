@@ -1,0 +1,113 @@
+.weather-card {
+  width: 19rem;
+  height: 30rem;
+  padding: 2rem;
+  margin: 2rem;
+  background-color: white;
+  border-radius: 1.75rem;
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 1fr 1fr;
+  box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
+  justify-items: center ;
+  animation: 1s ease-in-out slideup, 1.25s ease-in-out fadein;
+}
+.weather-card .city_name {
+  font-weight: bold;
+  font-size: 1.375rem;
+  letter-spacing: 1rem;
+  cursor: pointer;
+  margin-left: 1.25rem;
+}
+.weather-card .weather-icon_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.weather-card .weather-icon_container svg {
+  width: 10rem;
+  height: 10rem;
+}
+.weather-card .temperature-text__container .temperature-metric__text {
+  font-size: 3rem;
+  text-align: start;
+}
+.weather-card .temperature-text__container .weather-condition__text {
+  font-size: 1rem;
+  display: block;
+  text-align: center;
+  letter-spacing: 1rem;
+  padding-top: 1rem ;
+}
+.weather-card .min-max_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  min-height: 6.25rem;
+  align-items: center;
+  justify-content: center;
+}
+.weather-card .min-max_container .min-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 1rem 3rem;
+  height: 7.5rem;
+  justify-items: center;
+}
+.weather-card .min-max_container .min-container .min-arrow__icon {
+  height: 1.25rem;
+  margin-top: -1.25rem;
+}
+.weather-card .min-max_container .min-container .min-temperature_text {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.weather-card .min-max_container .max-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 1rem 3rem;
+}
+.weather-card .min-max_container .max-container .max-arrow__icon {
+  height: 1.25rem;
+  margin-top: 0.375rem;
+  justify-self: center;
+}
+.weather-card .min-max_container .max-container .max-temperature_text {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.weather-card .add-city-btn {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  background-color: #2b244d;
+  border-radius: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+@keyframes slideup {
+  0% {
+    transform: rotateY(0%);
+  }
+  100% {
+    transform: rotateY(100%);
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.weather-card-dark {
+  color: #ffffff;
+  background: linear-gradient(to bottom, #372865, #000);
+}
+/*# sourceMappingURL=search-card.component.css.map */

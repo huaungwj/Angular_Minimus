@@ -1,0 +1,34 @@
+
+<div class="main__container">
+  <div class="login-card">
+
+    <main class="login-content">
+      <span class="login-header">登录</span>
+      <!-- login form -->
+
+      <form class="login-form" (ngSubmit)="login($event)" #authform="ngForm">
+        <input ngModel type="email" autofocus placeholder="邮箱" name="email" class="login-input" required>
+        <input ngModel type="password" placeholder="密码" name="password" class="login-input" minlength="6"
+               required>
+        <input type="submit" name="submit" value="登录" class="login-btn" [class.btn-disabled]="!authform.form.valid"
+               [disabled]="!authform.form.valid">
+      </form>
+      <div class="signup-link-wrapper">
+        <span class="signup-notice">还没有账号吗？</span>
+        <a class="signup-link" [routerLink]="['/signup']">注册</a>
+      </div>
+
+    </main>
+
+    <aside class="login-aside">
+      <div class="login-aside-overlay"></div>
+      <h1 class="login-welcome-text">Welcome Back!</h1>
+      <hr class="login-aside-hr">
+    </aside>
+  </div>
+</div>
+
+
+
+
+

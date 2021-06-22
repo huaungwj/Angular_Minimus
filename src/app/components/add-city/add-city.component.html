@@ -1,0 +1,562 @@
+<!-- 最外层盒子 -->
+<div class="add-wrapper">
+<!-- 背景 flex 圆角 大小 -->
+  <section class="main-card">
+<!--  左边卡片盒子  -->
+    <div class="city-search-wrapper">
+<!-- 左边卡片头部    -->
+      <div class="city-search-header">
+        <h3>搜 索 城 市</h3>
+        <div class="search-city-input-wrapper">
+          <input type="search" (keyup)="getCityList()" (blur)="hiddenItem($event)"  (keydown)="hiddenItem($event)" (click)="showItem($event)" placeholder="搜索城市" class="search-city-input">
+          <button (keyup)="keyUpInputVlaue($event)" class="search-city-btn" (click)="getInputVlaue($event)">
+            <svg  class="search-icon" viewBox="0 0 451 451" xmlns="http://www.w3.org/2000/svg">
+              <path  d="M447 428L337.6 318.4A192.5 192.5 0 0 0 192.4 0C86.3 0 0 86.3 0 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126-47.2L428.2 447a13.2 13.2 0 0 0 19 0 13.5 13.5 0 0 0 0-19zM27 192.3C27 101.1 101 27 192.3 27c91.1 0 165.3 74.2 165.3 165.3s-74.2 165.4-165.4 165.4A165.6 165.6 0 0 1 27 192.3z" fill="#FFF">
+              </path></svg></button>
+          <div class="search-content" style="z-index: 888" #searchContent>
+            <ul id="search-content-ul">
+              <li  *ngFor="let item of cityList" (click)="getLiValue($event)">{{item}}</li>
+
+            </ul>
+          </div>
+        </div>
+        <span class="city-search-hr">O O O</span>
+      </div>
+<!-- 左边卡片内容 -->
+      <div class="city-search-body" >
+        <app-search-card [mateData]="mateData" *ngIf="searchFlag" [searchCard]="searchCard" [searchFlag]="searchFlag"></app-search-card>
+      </div>
+
+    </div>
+
+    <div class="fav-city-wrapper">
+      <img class="fav-city-image" src="https://s1.ax1x.com/2020/09/18/w4mAUS.jpg">
+      <div class="Mask-bg"></div>
+
+      <div class="fav-city-header">
+        <h3 class="fav-city-title">CITY OF THE MONTH</h3>
+        <hr class="fav-city-hr">
+        <span  class="fav-city-date">Sunday, 31th July
+      </span>
+      </div>
+
+      <div class="fav-city-body" *ngFor="let items of goodCity">
+        <div class="fav-city-body-subwrapper">
+          <div class="fav-weather-icon" [ngSwitch]="true">
+            <!-- 晴天 -->
+            <svg *ngIf="items.now.icon === '100' || items.now.icon === '150'"  viewBox="2050 -845 262 262">
+              <circle cx="131" cy="131" data-name="Sun Icon" fill="#ffde17" r="131"
+                      transform="translate(2050 -845)"></circle>
+            </svg>
+            <!-- 多云 -->
+            <svg *ngIf="items.now.icon  === '101' || items.now.icon  === '102' || items.now.icon  === '103' || items.now.icon  === '153'" xmlns="http://www.w3.org/2000/svg" width="275.522" height="274.091"
+                 viewBox="0 0 275.522 274.091">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #fff;
+                  }
+
+                  .cls-2 {
+                    fill: #ffde17;
+                  }
+                </style>
+              </defs>
+              <g id="cloudy_icon" data-name="cloudy icon" transform="translate(-2352.885 1633.091)">
+                <circle id="椭圆_23" data-name="椭圆 23" class="cls-1" cx="137" cy="137" r="137" transform="translate(2354 -1633)"/>
+                <path id="减去_1" data-name="减去 1" class="cls-2"
+                      d="M-1755.089,1486.6l0,0a37.216,37.216,0,0,0,8.359-23.415c0-22.035-19.784-39.962-44.1-39.962-1.124,0-2.253.038-3.354.113v-.113h-.495a39.755,39.755,0,0,0-39.466-33.651,40.146,40.146,0,0,0-9.916,1.239,39.916,39.916,0,0,0-35.3-21.22,40.108,40.108,0,0,0-38.45,29.04,137.432,137.432,0,0,1-7.82-45.866,138.777,138.777,0,0,1,2.8-27.764,137.066,137.066,0,0,1,8.027-25.859,137.781,137.781,0,0,1,12.7-23.4,138.758,138.758,0,0,1,16.822-20.388,138.764,138.764,0,0,1,20.388-16.822,137.789,137.789,0,0,1,23.4-12.7,137.072,137.072,0,0,1,25.859-8.027,138.775,138.775,0,0,1,27.764-2.8,138.775,138.775,0,0,1,27.764,2.8,137.067,137.067,0,0,1,25.859,8.027,137.785,137.785,0,0,1,23.4,12.7,138.759,138.759,0,0,1,20.388,16.822,138.741,138.741,0,0,1,16.822,20.388,137.784,137.784,0,0,1,12.7,23.4,137.067,137.067,0,0,1,8.027,25.859,138.777,138.777,0,0,1,2.8,27.764,137.411,137.411,0,0,1-7.929,46.175,137.23,137.23,0,0,1-21.964,39.522,138.173,138.173,0,0,1-33.261,30.133,136.764,136.764,0,0,1-41.819,18.007Z"
+                      transform="translate(4278.521 -2848.091)"/>
+              </g>
+            </svg>
+            <!-- 雪 -->
+            <svg *ngIf="items.now.icon  === '901' || items.now.icon  === '400' || items.now.icon  === '401' || items.now.icon  === '402' || items.now.icon  === '403' ||items.now.icon  === '404' ||items.now.icon  === '405' ||items.now.icon  === '406' ||items.now.icon  === '407' || items.now.icon  === '408' || items.now.icon  === '409' || items.now.icon  === '410' ||items.now.icon  ===  '499' ||items.now.icon  === '456' || items.now.icon  === '457' " xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" width="224.284" height="268.854" viewBox="0 0 224.284 268.854">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #0032cc;
+                  }
+
+                  .cls-2 {
+                    fill: #003eff;
+                  }
+
+                  .cls-3 {
+                    fill: #fff;
+                  }
+
+                  .cls-4 {
+                    filter: url(#矩形_32-2);
+                  }
+
+                  .cls-5 {
+                    filter: url(#矩形_29-2);
+                  }
+
+                  .cls-6 {
+                    filter: url(#矩形_26-2);
+                  }
+
+                  .cls-7 {
+                    filter: url(#矩形_24-2);
+                  }
+
+                  .cls-8 {
+                    filter: url(#矩形_33-2);
+                  }
+
+                  .cls-9 {
+                    filter: url(#矩形_30-2);
+                  }
+
+                  .cls-10 {
+                    filter: url(#矩形_27-2);
+                  }
+
+                  .cls-11 {
+                    filter: url(#矩形_23-2);
+                  }
+
+                  .cls-12 {
+                    filter: url(#矩形_31-2);
+                  }
+
+                  .cls-13 {
+                    filter: url(#矩形_28-2);
+                  }
+
+                  .cls-14 {
+                    filter: url(#矩形_25-2);
+                  }
+
+                  .cls-15 {
+                    filter: url(#矩形_22-2);
+                  }
+
+                  .cls-16 {
+                    filter: url(#矩形_32);
+                  }
+
+                  .cls-17 {
+                    filter: url(#矩形_29);
+                  }
+
+                  .cls-18 {
+                    filter: url(#矩形_26);
+                  }
+
+                  .cls-19 {
+                    filter: url(#矩形_24);
+                  }
+
+                  .cls-20 {
+                    filter: url(#矩形_33);
+                  }
+
+                  .cls-21 {
+                    filter: url(#矩形_30);
+                  }
+
+                  .cls-22 {
+                    filter: url(#矩形_27);
+                  }
+
+                  .cls-23 {
+                    filter: url(#矩形_23);
+                  }
+
+                  .cls-24 {
+                    filter: url(#矩形_31);
+                  }
+
+                  .cls-25 {
+                    filter: url(#矩形_28);
+                  }
+
+                  .cls-26 {
+                    filter: url(#矩形_25);
+                  }
+
+                  .cls-27 {
+                    filter: url(#矩形_22);
+                  }
+                </style>
+                <filter id="矩形_22" x="1.774" y="176.841" width="126.525" height="25.484" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_25" x="69.134" y="142.329" width="25.484" height="126.525" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-2"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-2"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_28" x="3.113" y="166.236" width="100.031" height="100.031" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-3"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-3"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_31" x="0" y="151.635" width="115.728" height="78.744" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-4"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-4"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_23" x="1.774" y="210.521" width="126.525" height="25.484" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-5"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-5"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_27" x="35.454" y="142.329" width="25.484" height="126.525" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-6"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-6"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_30" x="26.929" y="142.421" width="100.031" height="100.031" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-7"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-7"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_33" x="16.84" y="180.803" width="115.728" height="78.744" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-8"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-8"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_24" x="1.774" y="192.641" width="126.525" height="25.484" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-9"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-9"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_26" x="53.334" y="142.329" width="25.484" height="126.525" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-10"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-10"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_29" x="14.286" y="155.063" width="100.031" height="100.031" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-11"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-11"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_32" x="7.9" y="165.319" width="115.728" height="78.744" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-12"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-12"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_22-2" x="119.647" y="100.421" width="101.359" height="23.749" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-13"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-13"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_25-2" x="171.386" y="73.912" width="23.749" height="101.359" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-14"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-14"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_28-2" x="120.675" y="92.275" width="81.008" height="81.008" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-15"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-15"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_31-2" x="118.284" y="81.06" width="93.065" height="64.658" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-16"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-16"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_23-2" x="119.647" y="126.291" width="101.359" height="23.749" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-17"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-17"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_27-2" x="145.516" y="73.912" width="23.749" height="101.359" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-18"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-18"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_30-2" x="138.968" y="73.983" width="81.008" height="81.008" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-19"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-19"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_33-2" x="131.219" y="103.464" width="93.065" height="64.658" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-20"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-20"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_24-2" x="119.647" y="112.557" width="101.359" height="23.749" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-21"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-21"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_26-2" x="159.25" y="73.912" width="23.749" height="101.359" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-22"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-22"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_29-2" x="129.257" y="83.694" width="81.008" height="81.008" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-23"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-23"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="矩形_32-2" x="124.352" y="91.571" width="93.065" height="64.658" filterUnits="userSpaceOnUse">
+                  <feOffset dy="3" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="3" result="blur-24"/>
+                  <feFlood flood-color="#262626" flood-opacity="0.161"/>
+                  <feComposite operator="in" in2="blur-24"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+              </defs>
+              <g id="Snowing_Icon" data-name="Snowing Icon" transform="translate(-836.216 -296.909)">
+                <g id="Water_Drops" data-name="Water Drops" transform="translate(8 40)">
+                  <path id="路径_7" data-name="路径 7" class="cls-1"
+                        d="M-340.754,367.841s85.833,133.473,0,133.473S-340.754,367.841-340.754,367.841Z"
+                        transform="translate(1335.123 -92.314)"/>
+                  <path id="路径_3" data-name="路径 3" class="cls-2"
+                        d="M-309.532,367.841s-156.082,242.71,0,242.71S-309.532,367.841-309.532,367.841Z"
+                        transform="translate(1247.902 -110.933)"/>
+                </g>
+                <g id="Ice">
+                  <g id="Ice_big_" data-name="Ice (big)" transform="translate(-10 20)">
+                    <g class="cls-27" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_22-3" data-name="矩形 22" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(10.77 182.84)"/>
+                    </g>
+                    <g class="cls-26" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_25-3" data-name="矩形 25" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(85.62 148.33) rotate(90)"/>
+                    </g>
+                    <g class="cls-25" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_28-3" data-name="矩形 28" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(88.85 254.27) rotate(-135)"/>
+                    </g>
+                    <g class="cls-24" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_31-3" data-name="矩形 31" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(9 211.9) rotate(-30)"/>
+                    </g>
+                    <g class="cls-23" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_23-3" data-name="矩形 23" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(10.77 216.52)"/>
+                    </g>
+                    <g class="cls-22" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_27-3" data-name="矩形 27" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(51.94 148.33) rotate(90)"/>
+                    </g>
+                    <g class="cls-21" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_30-3" data-name="矩形 30" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(112.67 230.45) rotate(-135)"/>
+                    </g>
+                    <g class="cls-20" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_33-3" data-name="矩形 33" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(25.84 241.07) rotate(-30)"/>
+                    </g>
+                    <g class="cls-19" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_24-3" data-name="矩形 24" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(10.77 198.64)"/>
+                    </g>
+                    <g class="cls-18" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_26-3" data-name="矩形 26" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(69.82 148.33) rotate(90)"/>
+                    </g>
+                    <g class="cls-17" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_29-3" data-name="矩形 29" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(100.02 243.09) rotate(-135)"/>
+                    </g>
+                    <g class="cls-16" transform="matrix(1, 0, 0, 1, 846.22, 276.91)">
+                      <rect id="矩形_32-3" data-name="矩形 32" class="cls-3" width="108.525" height="7.484"
+                            transform="translate(16.9 225.58) rotate(-30)"/>
+                    </g>
+                  </g>
+                  <g id="Ice_small_" data-name="Ice (small) " transform="translate(108.284 -48.417)">
+                    <g class="cls-15" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_22-4" data-name="矩形 22" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(128.65 106.42)"/>
+                    </g>
+                    <g class="cls-14" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_25-4" data-name="矩形 25" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(186.14 79.91) rotate(90)"/>
+                    </g>
+                    <g class="cls-13" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_28-4" data-name="矩形 28" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(188.62 161.28) rotate(-135)"/>
+                    </g>
+                    <g class="cls-12" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_31-4" data-name="矩形 31" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(127.28 128.74) rotate(-30)"/>
+                    </g>
+                    <g class="cls-11" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_23-4" data-name="矩形 23" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(128.65 132.29)"/>
+                    </g>
+                    <g class="cls-10" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_27-4" data-name="矩形 27" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(160.27 79.91) rotate(90)"/>
+                    </g>
+                    <g class="cls-9" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_30-4" data-name="矩形 30" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(206.91 142.99) rotate(-135)"/>
+                    </g>
+                    <g class="cls-8" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_33-4" data-name="矩形 33" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(140.22 151.14) rotate(-30)"/>
+                    </g>
+                    <g class="cls-7" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_24-4" data-name="矩形 24" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(128.65 118.56)"/>
+                    </g>
+                    <g class="cls-6" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_26-4" data-name="矩形 26" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(174 79.91) rotate(90)"/>
+                    </g>
+                    <g class="cls-5" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_29-4" data-name="矩形 29" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(197.2 152.7) rotate(-135)"/>
+                    </g>
+                    <g class="cls-4" transform="matrix(1, 0, 0, 1, 727.93, 345.33)">
+                      <rect id="矩形_32-4" data-name="矩形 32" class="cls-3" width="83.359" height="5.749"
+                            transform="translate(133.35 139.25) rotate(-30)"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <!-- 雨 -->
+            <svg *ngIf="items.now.icon === '300' || items.now.icon  === '301' ||items.now.icon === '305' ||  items.now.icon  === '306' ||  items.now.icon  === '307' || items.now.icon  === '309' || items.now.icon  === '310' || items.now.icon  === '311' || items.now.icon  === '313' || items.now.icon  === '314' || items.now.icon  === '315' || items.now.icon  === '316' || items.now.icon  === '317' ||items.now.icon  === '318' ||items.now.icon  === '399'	||items.now.icon  === '350' ||items.now.icon  === '351' " xmlns="http://www.w3.org/2000/svg" width="163.518" height="242.71"
+                 viewBox="0 0 163.518 242.71">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #0032cc;
+                  }
+
+                  .cls-2 {
+                    fill: #003eff;
+                  }
+                </style>
+              </defs>
+              <g id="Rain_Icon" data-name="Rain Icon" transform="translate(-877 -296.909)">
+                <g id="Water_Drops" data-name="Water Drops" transform="translate(8 40)">
+                  <path id="路径_7" data-name="路径 7" class="cls-1"
+                        d="M-340.754,367.841s85.833,133.473,0,133.473S-340.754,367.841-340.754,367.841Z"
+                        transform="translate(1335.123 -92.314)"/>
+                  <path id="路径_3" data-name="路径 3" class="cls-2"
+                        d="M-309.532,367.841s-156.082,242.71,0,242.71S-309.532,367.841-309.532,367.841Z"
+                        transform="translate(1247.902 -110.933)"/>
+                </g>
+              </g>
+            </svg>
+            <!-- 雷-->
+            <svg *ngIf="items.now.icon === '302' || items.now.icon  === '303' || items.now.icon  === '304' || items.now.icon  === '308' || items.now.icon  === '312'" xmlns="http://www.w3.org/2000/svg" width="291.18" height="200.329"
+                 viewBox="0 0 291.18 200.329">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #494656;
+                  }
+
+                  .cls-2, .cls-3 {
+                    fill: none;
+                    stroke: #fd0;
+                  }
+
+                  .cls-2 {
+                    stroke-width: 18px;
+                  }
+
+                  .cls-3 {
+                    stroke-width: 15px;
+                  }
+                </style>
+              </defs>
+              <g id="Strom_icon" data-name="Strom icon" transform="translate(-1529 -450.012)">
+                <ellipse id="椭圆_14" data-name="椭圆 14" class="cls-1" cx="55.298" cy="51.682" rx="55.298" ry="51.682"
+                         transform="translate(1529 490.389)"/>
+                <ellipse id="椭圆_15" data-name="椭圆 15" class="cls-1" cx="55.298" cy="51.682" rx="55.298" ry="51.682"
+                         transform="translate(1569.61 467.778)"/>
+                <circle id="椭圆_16" data-name="椭圆 16" class="cls-1" cx="55.298" cy="55.298" r="55.298"
+                        transform="translate(1618.86 476.787)"/>
+                <ellipse id="椭圆_17" data-name="椭圆 17" class="cls-1" cx="55.298" cy="51.682" rx="55.298" ry="51.682"
+                         transform="translate(1631.82 450.012)"/>
+                <ellipse id="椭圆_18" data-name="椭圆 18" class="cls-1" cx="55.298" cy="51.682" rx="55.298" ry="51.682"
+                         transform="translate(1687.118 477.468)"/>
+                <ellipse id="椭圆_19" data-name="椭圆 19" class="cls-1" cx="55.298" cy="51.682" rx="55.298" ry="51.682"
+                         transform="translate(1709.583 507.347)"/>
+                <circle id="椭圆_20" data-name="椭圆 20" class="cls-1" cx="55.298" cy="55.298" r="55.298"
+                        transform="translate(1639.596 500.116)"/>
+                <ellipse id="椭圆_21" data-name="椭圆 21" class="cls-1" cx="55.298" cy="51.682" rx="55.298" ry="51.682"
+                         transform="translate(1569.61 507.347)"/>
+                <path id="路径_59" data-name="路径 59" class="cls-2"
+                      d="M3701.846-562.351,3640.5-623.7l22.465-10.368,26.785,5.184,9.5-22.465L3661.237-688.5"
+                      transform="translate(-1969.366 1206.328)"/>
+                <path id="路径_60" data-name="路径 60" class="cls-3" d="M3623.881-674.4l31.24,25.868L3630.327-626.3l17.273,36.2"
+                      transform="translate(-2026.725 1213.915)"/>
+              </g>
+            </svg>
+            <!-- 阴天 -->
+            <img *ngIf="items.now.icon === '104' || items.now.icon  === '154'" class="icon"
+                 src="//mat1.gtimg.com/pingjs/ext2020/weather/pc/icon/currentweather/day/02.png">
+            <!-- 雾霾 -->
+            <img *ngIf="items.now.icon  ===  '500' || items.now.icon  === '501' || items.now.icon  === '502' || items.now.icon  === '503' || items.now.icon  === '504' || items.now.icon  === '507' || items.now.icon  === '508' || items.now.icon  === '509' || items.now.icon  === '510' ||items.now.icon  === '511' || items.now.icon  === '512' ||  items.now.icon  === '513' || items.now.icon  === '514' ||items.now.icon  === '515'  " class="wumai" src="https://s1.ax1x.com/2020/09/19/w56KG8.png" alt="">
+
+          </div>
+          <div class="fav-city-info">
+            <span class="fav-city-temp">{{items.now.temp}}°</span>
+            <div class="fav-city-name-wrapper">
+              <span class="fav-city-name">{{items.city}}</span>
+              <span class="fav-city-country">中国</span>
+            </div>
+            <span class="fav-city-state">{{items.now.text}}</span>
+          </div>
+          <button class="fav-city-add-btn fav-city-added-btn" disabled="">FOLLOWED</button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
+</div>

@@ -1,0 +1,19 @@
+.main_container {
+  display: inline-flex;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 90vh;
+  position: relative;
+}
+app-weather-card {
+  display: inline-flex;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 90vh;
+  position: relative;
+}
+/*# sourceMappingURL=home.component.css.map */
