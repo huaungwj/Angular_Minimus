@@ -10,7 +10,29 @@
 
 ![](https://github.com/huaungwj/img_storage/blob/main/minimus/register.png?raw=true)
 
+## 首页
 
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/home_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/home_dark.png?raw=true)
+
+## 天气详情
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/detail_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/detail_dark.png?raw=true)
+
+## 添加城市到首页
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/add_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/add_dark.png?raw=true)
+
+## 个人首页
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/personal_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/personal_dark.png?raw=true)
 
 ## 运行
 
