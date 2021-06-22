@@ -4,11 +4,11 @@
 
 ## 登陆页面
 
-![](/Users/huangweiji/Desktop/code/git_project/Angular_Minimus/md_image/login.png)
+![](https://github.com//huaungwj/img_storage/blob/main/minimus/login.png?raw=true)
 
 ## 注册
 
-![](/Users/huangweiji/Desktop/code/git_project/Angular_Minimus/md_image/register.png)
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/register.png?raw=true)
 
 
 
