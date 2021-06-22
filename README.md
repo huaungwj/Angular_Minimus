@@ -1,6 +1,6 @@
-# Minimus
+# Minimus 天气预报
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
+![](https://camo.githubusercontent.com/3dcf9a240fb7730a93d69ad25f7a2788fdf049521e954a5394fc4fb76b592b80/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f333630302f312a35376c5a79715859383558535459523349755a4b43672e706e67)
 
 ## Development server
 
