@@ -2,6 +2,16 @@
 
 ![](https://camo.githubusercontent.com/3dcf9a240fb7730a93d69ad25f7a2788fdf049521e954a5394fc4fb76b592b80/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f333630302f312a35376c5a79715859383558535459523349755a4b43672e706e67)
 
+## 登陆页面
+
+![](/Users/huangweiji/Desktop/code/git_project/Angular_Minimus/md_image/login.png)
+
+## 注册
+
+![](/Users/huangweiji/Desktop/code/git_project/Angular_Minimus/md_image/register.png)
+
+
+
 ## 运行
 
 使用angular脚手架进行搭建，运行 `ng serve` 命令来打开项目，访问到http://localhost:4200/
