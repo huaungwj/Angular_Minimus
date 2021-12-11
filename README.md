@@ -6,6 +6,42 @@ Angular 13 and Electron 16 (Typescript + SASS + Hot Reload) for creating Desktop
 
 [Online web address](http://49.233.14.172:2888/static/weather/index.html#/home)
 
+# Minimus 天气预报
+
+![](https://camo.githubusercontent.com/3dcf9a240fb7730a93d69ad25f7a2788fdf049521e954a5394fc4fb76b592b80/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f333630302f312a35376c5a79715859383558535459523349755a4b43672e706e67)
+
+## 登陆页面
+
+![](https://github.com//huaungwj/img_storage/blob/main/minimus/login.png?raw=true)
+
+## 注册
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/register.png?raw=true)
+
+## 首页
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/home_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/home_dark.png?raw=true)
+
+## 天气详情
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/detail_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/detail_dark.png?raw=true)
+
+## 添加城市到首页
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/add_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/add_dark.png?raw=true)
+
+## 个人首页
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/personal_lig.png?raw=true)
+
+![](https://github.com/huaungwj/img_storage/blob/main/minimus/personal_dark.png?raw=true)
+
 Currently runs with:
 
 - Angular v13.0.0
