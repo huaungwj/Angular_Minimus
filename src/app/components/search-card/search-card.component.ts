@@ -8,7 +8,7 @@ import { StorageService } from '../../services/storage.service';
 @Component({
   selector: 'app-search-card',
   templateUrl: './search-card.component.html',
-  styleUrls: ['./search-card.component.less'],
+  styleUrls: ['./search-card.component.css'],
 })
 export class SearchCardComponent implements OnInit {
   // @Input() weatherData:any;

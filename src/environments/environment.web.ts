@@ -1,5 +1,10 @@
+export const APP_CONFIG = {
+  production: false,
+  environment: "WEB",
+};
+
 export const environment = {
-  production: true,
+  production: true, // production: false => in enviroment.ts
   config: {
     apiKey: "AIzaSyBmCxPnT-ePO2C1JvUMqQv6X_g4lt2-KG0",
     authDomain: "minimus-887.firebaseapp.com",

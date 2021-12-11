@@ -17,7 +17,7 @@ import { StorageService } from './services/storage.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less'],
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'Minimus';
@@ -72,9 +72,9 @@ export class AppComponent {
     // console.log(this.url)
   }
 
-  showAside(e) {
+  showAside(e: any) {
     //原生js获取dom节点
-    let asideDom = document.querySelector('aside');
+    let asideDom: any = document.querySelector('aside');
     let mainContainer = document.querySelector('.main-container');
     let slideMenu = document.querySelector('.slide-menu');
     let asideBg = document.querySelector('.aside_bg');
