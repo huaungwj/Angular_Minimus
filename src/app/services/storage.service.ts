@@ -1,39 +1,34 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
-
   public data: any = '123';
 
-  constructor() {
-
-  }
+  constructor() {}
 
   // tslint:disable-next-line:typedef
-  set(key: any , value: any){
+  set(key: any, value: any) {
     // @ts-ignore
     localStorage.setItem(key, JSON.stringify(value));
   }
 
   // tslint:disable-next-line:typedef
-  removeone(key: any, value: any){
-    localStorage.setItem(key, JSON.stringify(value));
+  removeone(key: any) {
+    localStorage.removeItem(key);
   }
   // tslint:disable-next-line:typedef
-  removeAll(key: any, value: any){
+  removeAll() {
     // @ts-ignore
     // tslint:disable-next-line:prefer-const
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.clear();
   }
 
   // tslint:disable-next-line:typedef
-  get(key: any){
+  get(key: any) {
     // return 'this is a service';
 
     return JSON.parse(localStorage.getItem(key));
   }
-
-
 }

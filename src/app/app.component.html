@@ -1,85 +1,299 @@
-
-<aside id="aside" [ngClass]="{'aside-active' : flags}" *ngIf="fb.url!='/login' && fb.url!='/signup'" >
-  <nav class="slide-menu" [ngClass]="{'slide-menu-dark' : themeFlags,'slide-menu-active': flags}"   #slideMenuDark>
-    <section class="menu-header" [ngClass]="{'menu-header-dark' : themeFlags}" #menuHeaderDark>
-      <div class="menu-svg">
-
-      </div>
+<aside
+  id="aside"
+  [ngClass]="{ 'aside-active': flags }"
+  *ngIf="fb.url != '/login' && fb.url != '/signup'"
+>
+  <nav
+    class="slide-menu"
+    [ngClass]="{ 'slide-menu-dark': themeFlags, 'slide-menu-active': flags }"
+    #slideMenuDark
+  >
+    <section
+      class="menu-header"
+      [ngClass]="{ 'menu-header-dark': themeFlags }"
+      #menuHeaderDark
+    >
+      <div class="menu-svg"></div>
       <span>WELCOME BACK</span>
-<!--      <div class="user">-->
+      <!--      <div class="user">-->
 
-        <img src="https://s1.ax1x.com/2020/09/14/wBTp4J.png" alt="wBTp4J.png" border="0" />
-        <div class="user-info">
-          <span class="user_name">{{userEmail}}</span>
-          <span class="user_text" >Free Plan</span>
-        </div>
-<!--      </div>-->
-
+      <img
+        src="https://s1.ax1x.com/2020/09/14/wBTp4J.png"
+        alt="wBTp4J.png"
+        border="0"
+      />
+      <div class="user-info">
+        <span class="user_name">{{ userEmail }}</span>
+        <span class="user_text">Free Plan</span>
+      </div>
+      <!--      </div>-->
     </section>
     <section class="menu-body">
-      <ul class="menu-link" >
+      <ul class="menu-link">
         <li class="menu-link" routerLinkActive="link-active">
-          <a href="#" [ngClass]="{'menu-link-dark' : themeFlags}" routerLink="/home"  routerLinkActive="link-color">
+          <a
+            href="#"
+            [ngClass]="{ 'menu-link-dark': themeFlags }"
+            routerLink="/home"
+            routerLinkActive="link-color"
+          >
             首页
           </a>
-
-      </li>
-      <li class="menu-link" routerLinkActive="link-active">
-        <a href="#"  [ngClass]="{'menu-link-dark' : themeFlags}" [routerLink]="['/add']" routerLinkActive="link-color">
-          添加城市
-        </a>
-      </li>
-        <li class="menu-link" routerLinkActive="link-active">
-            <a href="#" (click)="logout()" [ngClass]="{'menu-link-dark' : themeFlags}"  [routerLink]="['/login']" routerLinkActive="link-color">
-              登录
-            </a>
         </li>
-    </ul>
+        <li class="menu-link" routerLinkActive="link-active">
+          <a
+            href="#"
+            [ngClass]="{ 'menu-link-dark': themeFlags }"
+            [routerLink]="['/add']"
+            routerLinkActive="link-color"
+          >
+            添加城市
+          </a>
+        </li>
+        <li *ngIf="!userEmail" class="menu-link" routerLinkActive="link-active">
+          <a
+            href="#"
+            [ngClass]="{ 'menu-link-dark': themeFlags }"
+            [routerLink]="['/login']"
+            routerLinkActive="link-color"
+          >
+            登录
+          </a>
+        </li>
+        <li *ngIf="userEmail" class="menu-link" routerLinkActive="link-active">
+          <a
+            href="#"
+            (click)="logout()"
+            [ngClass]="{ 'menu-link-dark': themeFlags }"
+            [routerLink]="['/login']"
+            routerLinkActive="link-color"
+          >
+            登出
+          </a>
+        </li>
+      </ul>
     </section>
   </nav>
 </aside>
-<div class="aside_bg" [ngClass]="{'aside_bg-active': flags}" (click)="showAside($event)"></div>
+<div
+  class="aside_bg"
+  [ngClass]="{ 'aside_bg-active': flags }"
+  (click)="showAside($event)"
+></div>
 
-<main class="main-container" [ngClass]="{'main-container-dark': themeFlags}" #mainContainerDark>
-  <header *ngIf="fb.url!='/login' && fb.url!='/signup'" class="main-header" [ngClass]="{'main_header-dark' : themeFlags}" #mainHeaderDark>
+<main
+  class="main-container"
+  [ngClass]="{ 'main-container-dark': themeFlags }"
+  #mainContainerDark
+>
+  <header
+    *ngIf="fb.url != '/login' && fb.url != '/signup'"
+    class="main-header"
+    [ngClass]="{ 'main_header-dark': themeFlags }"
+    #mainHeaderDark
+  >
     <div class="left-section">
-      <svg *ngIf="!themeFlags" (click)="showAside($event)"  class="hamburger__icon" data-name="Menu Burger Icon" id="Menu_Burger_Icon" viewBox="31.5 30 49.9 32"><defs _ngcontent-pqk-c0=""><style _ngcontent-pqk-c0="">.hamburger__icon__fill { fill: #594e78 }</style></defs><rect _ngcontent-pqk-c0="" class="hamburger__icon__fill" data-name="Rectangle 9" height="4" id="Rectangle_9" rx="2" transform="translate(31.5 58)" width="49.9"></rect><rect _ngcontent-pqk-c0="" class="hamburger__icon__fill" data-name="Rectangle 10" height="4" id="Rectangle_10" rx="2" transform="translate(31.5 44)" width="49.9"></rect><rect _ngcontent-pqk-c0="" class="hamburger__icon__fill" data-name="Rectangle 11" height="4" id="Rectangle_11" rx="2" transform="translate(31.5 30)" width="49.9"></rect></svg>
+      <svg
+        *ngIf="!themeFlags"
+        (click)="showAside($event)"
+        class="hamburger__icon"
+        data-name="Menu Burger Icon"
+        id="Menu_Burger_Icon"
+        viewBox="31.5 30 49.9 32"
+      >
+        <defs _ngcontent-pqk-c0="">
+          <style _ngcontent-pqk-c0="">
+            .hamburger__icon__fill {
+              fill: #594e78;
+            }
+          </style>
+        </defs>
+        <rect
+          _ngcontent-pqk-c0=""
+          class="hamburger__icon__fill"
+          data-name="Rectangle 9"
+          height="4"
+          id="Rectangle_9"
+          rx="2"
+          transform="translate(31.5 58)"
+          width="49.9"
+        ></rect>
+        <rect
+          _ngcontent-pqk-c0=""
+          class="hamburger__icon__fill"
+          data-name="Rectangle 10"
+          height="4"
+          id="Rectangle_10"
+          rx="2"
+          transform="translate(31.5 44)"
+          width="49.9"
+        ></rect>
+        <rect
+          _ngcontent-pqk-c0=""
+          class="hamburger__icon__fill"
+          data-name="Rectangle 11"
+          height="4"
+          id="Rectangle_11"
+          rx="2"
+          transform="translate(31.5 30)"
+          width="49.9"
+        ></rect>
+      </svg>
       <!--  黑暗模式    -->
-      <svg *ngIf="themeFlags" (click)="showAside($event)" [ngClass]="{'hamburger__icon-dark': themeFlags}"  class="hamburger__icon" data-name="Menu Burger Icon" id="Menu_Burger_Icon" viewBox="31.5 30 49.9 32"><defs _ngcontent-fnu-c0=""><style _ngcontent-fnu-c0="">.hamburger__icon__fill { fill: #594e78 }</style></defs><rect _ngcontent-fnu-c0="" class="hamburger__icon__fill hamburger__icon__fill-dark" data-name="Rectangle 9" height="4" id="Rectangle_9" rx="2" transform="translate(31.5 58)" width="49.9"></rect><rect _ngcontent-fnu-c0="" class="hamburger__icon__fill hamburger__icon__fill-dark" data-name="Rectangle 10" height="4" id="Rectangle_10" rx="2" transform="translate(31.5 44)" width="49.9"></rect><rect _ngcontent-fnu-c0="" class="hamburger__icon__fill hamburger__icon__fill-dark" data-name="Rectangle 11" height="4" id="Rectangle_11" rx="2" transform="translate(31.5 30)" width="49.9"></rect></svg>
+      <svg
+        *ngIf="themeFlags"
+        (click)="showAside($event)"
+        [ngClass]="{ 'hamburger__icon-dark': themeFlags }"
+        class="hamburger__icon"
+        data-name="Menu Burger Icon"
+        id="Menu_Burger_Icon"
+        viewBox="31.5 30 49.9 32"
+      >
+        <defs _ngcontent-fnu-c0="">
+          <style _ngcontent-fnu-c0="">
+            .hamburger__icon__fill {
+              fill: #594e78;
+            }
+          </style>
+        </defs>
+        <rect
+          _ngcontent-fnu-c0=""
+          class="hamburger__icon__fill hamburger__icon__fill-dark"
+          data-name="Rectangle 9"
+          height="4"
+          id="Rectangle_9"
+          rx="2"
+          transform="translate(31.5 58)"
+          width="49.9"
+        ></rect>
+        <rect
+          _ngcontent-fnu-c0=""
+          class="hamburger__icon__fill hamburger__icon__fill-dark"
+          data-name="Rectangle 10"
+          height="4"
+          id="Rectangle_10"
+          rx="2"
+          transform="translate(31.5 44)"
+          width="49.9"
+        ></rect>
+        <rect
+          _ngcontent-fnu-c0=""
+          class="hamburger__icon__fill hamburger__icon__fill-dark"
+          data-name="Rectangle 11"
+          height="4"
+          id="Rectangle_11"
+          rx="2"
+          transform="translate(31.5 30)"
+          width="49.9"
+        ></rect>
+      </svg>
 
-      <svg *ngIf="!themeFlags" class="logo__icon" viewBox="150.3 22.2 213.7 42.8"><path _ngcontent-pqk-c0="" d="M150.3 65V22.2L193 65z" data-name="Path 1" fill="#00ff9b"></path><path _ngcontent-pqk-c0="" d="M193.1 65h-42.8L193 22.2z" data-name="Path 2" fill="#003eff"></path><text _ngcontent-pqk-c0="" class="logo__text" fill="#432c85" font-family="SegoeUI-Semibold,Segoe UI" font-size="30" font-weight="600" letter-spacing=".1em" transform="translate(220 56)"><tspan _ngcontent-pqk-c0="" x="0" y="0" >Minimus</tspan></text></svg>
+      <svg
+        *ngIf="!themeFlags"
+        class="logo__icon"
+        viewBox="150.3 22.2 213.7 42.8"
+      >
+        <path
+          _ngcontent-pqk-c0=""
+          d="M150.3 65V22.2L193 65z"
+          data-name="Path 1"
+          fill="#00ff9b"
+        ></path>
+        <path
+          _ngcontent-pqk-c0=""
+          d="M193.1 65h-42.8L193 22.2z"
+          data-name="Path 2"
+          fill="#003eff"
+        ></path>
+        <text
+          _ngcontent-pqk-c0=""
+          class="logo__text"
+          fill="#432c85"
+          font-family="SegoeUI-Semibold,Segoe UI"
+          font-size="30"
+          font-weight="600"
+          letter-spacing=".1em"
+          transform="translate(220 56)"
+        >
+          <tspan _ngcontent-pqk-c0="" x="0" y="0">Minimus</tspan>
+        </text>
+      </svg>
       <!--  黑暗模式    -->
 
-      <svg *ngIf="themeFlags" class="logo__icon" viewBox="150.3 22.2 213.7 42.8"><path _ngcontent-fnu-c0="" d="M150.3 65V22.2L193 65z" data-name="Path 1" fill="#00ff9b"></path><path _ngcontent-fnu-c0="" d="M193.1 65h-42.8L193 22.2z" data-name="Path 2" fill="#003eff"></path><text _ngcontent-fnu-c0="" class="logo__text" [ngClass]="{'logo__text-dark': themeFlags}" fill="#432c85" font-family="SegoeUI-Semibold,Segoe UI" font-size="30" font-weight="600" letter-spacing=".1em" transform="translate(220 56)"><tspan _ngcontent-fnu-c0="" x="0" y="0">Minimus</tspan></text></svg>
+      <svg
+        *ngIf="themeFlags"
+        class="logo__icon"
+        viewBox="150.3 22.2 213.7 42.8"
+      >
+        <path
+          _ngcontent-fnu-c0=""
+          d="M150.3 65V22.2L193 65z"
+          data-name="Path 1"
+          fill="#00ff9b"
+        ></path>
+        <path
+          _ngcontent-fnu-c0=""
+          d="M193.1 65h-42.8L193 22.2z"
+          data-name="Path 2"
+          fill="#003eff"
+        ></path>
+        <text
+          _ngcontent-fnu-c0=""
+          class="logo__text"
+          [ngClass]="{ 'logo__text-dark': themeFlags }"
+          fill="#432c85"
+          font-family="SegoeUI-Semibold,Segoe UI"
+          font-size="30"
+          font-weight="600"
+          letter-spacing=".1em"
+          transform="translate(220 56)"
+        >
+          <tspan _ngcontent-fnu-c0="" x="0" y="0">Minimus</tspan>
+        </text>
+      </svg>
     </div>
-    <h3 class="date_text">{{ date | date:'yyyy-MM-dd HH:mm:ss' }}</h3>
+    <h3 class="date_text">{{ date | date: "yyyy-MM-dd HH:mm:ss" }}</h3>
     <div class="mode-toggle_content">
       <span class="mode-toggle_text">白天</span>
-      <label class="mode-button_container" >
-        <input  (click)="modeToggleSwitch()"  type="checkbox" class="mode-toggle__input"  />
-        <span class="mode-toggle_bg" [ngClass]="{'mode-toggle_bg-dark' : themeFlags}" #modeToggleBgChecked></span>
-        <span class="mode-toggle_circle" [ngClass]="{'mode-toggle_circle-dark' : themeFlags}" #modeToggleCircleChecked></span>
+      <label class="mode-button_container">
+        <input
+          (click)="modeToggleSwitch()"
+          type="checkbox"
+          class="mode-toggle__input"
+        />
+        <span
+          class="mode-toggle_bg"
+          [ngClass]="{ 'mode-toggle_bg-dark': themeFlags }"
+          #modeToggleBgChecked
+        ></span>
+        <span
+          class="mode-toggle_circle"
+          [ngClass]="{ 'mode-toggle_circle-dark': themeFlags }"
+          #modeToggleCircleChecked
+        ></span>
       </label>
       <span class="mode-toggle_text">夜晚</span>
     </div>
   </header>
 
-    <div class="main-container__bg">
-
-
-      <router-outlet>
-
-      </router-outlet>
-
-
-
-
-    </div>
-
+  <div class="main-container__bg">
+    <router-outlet> </router-outlet>
+  </div>
 </main>
 
-
-<!--<footer class="main__footer">-->
-<!--  <small class="copyright__text">Copyright © 2020 Minimus</small>-->
-<!--</footer>-->
-
+<footer
+  class="main__footer"
+  style="
+    background-color: rgb(19, 19, 19);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  "
+>
+  <p>项目由 Angular 和 和风天气API 所构建</p>
+  <p style="margin: 10px 0">本项目只做学习用途，没有任何商业用途。</p>
+  <small class="copyright__text">Copyright © 2020 筱海</small>
+</footer>

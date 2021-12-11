@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModeToggleService {
+  public flag: boolean = false; // false 是关闭状态
 
-  public flag:boolean = false; // false 是关闭状态
+  constructor() {}
 
-  constructor() { }
+  toggleDark() {
+    this.flag = !this.flag;
 
-  toggleDark(){
-
-    this.flag  = !this.flag
-
-    console.log(this.flag)
+    // console.log(this.flag)
   }
-
 }
